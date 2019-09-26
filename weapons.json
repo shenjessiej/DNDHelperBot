@@ -1,0 +1,27 @@
+{
+  "name": "club",
+  "type": "melee",
+  "dmg_die": 1,
+  "dmg_each": 4,
+  "dmg_type": "bludgeoning",
+  "properties": "light"
+}
+
+{
+  "name": "dagger",
+  "type": "melee",
+  "dmg_die": 1,
+  "dmg_each": 4,
+  "dmg_type": "piercing",
+  "properties": "light, finesse, thrown range (20/60)"
+}
+
+{
+  "name": "crossbow",
+  "type": "ranged",
+  "dmg_die": 1,
+  "dmg_each": 8,
+  "dmg_type": "piercing",
+  "properties": "light, ammunition (range 80/320), loading, two-handed"
+}
+

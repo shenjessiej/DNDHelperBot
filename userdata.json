@@ -1,0 +1,19 @@
+{
+  "userID": 550094850180251652,
+  "player": "lucky",
+  "lvl": 4,
+  "class": "rogue",
+  "specialization": "arcane trickster",
+  "race": "half-elf",
+  "proficiency bonus": 2,
+  "str": 10,
+  "strbonus": 0,
+  "strsave": 0,
+  "athletics": 0,
+  "dex": 18,
+  "dexbonus": 4,
+  "dexsave": 6,
+  "acrobatics": 6,
+  "sleightofhand": 8,
+  "stealth": 6
+}
