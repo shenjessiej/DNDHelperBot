@@ -17,6 +17,8 @@ var bot = new Discord.Client({
    token: auth.token,
    autorun: true
 });
+
+
 bot.on('ready', function (evt) {
     logger.info('Connected');
     logger.info('Logged in as: ');
@@ -50,9 +52,16 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'charinfo':
                 bot.sendMessage({
                     to: channelID,
-                    message: '**Name:** ' + userData.player + '\n'
-                        + '**Level:** ' + userData.lvl + '\t' + '**Race:** ' + userData.race + '\n'  
-                        + '**Class:** ' + userData.class + '\t' + '**Archetype:** ' + userData.specialization 
+                    message: '>>> **Name** ' + '\n' + userData.player + '\n' + '\n' 
+                        + '**Level** ' + '\n' + userData.lvl + '\n'  + '\n' 
+                        + '**Race** ' + '\n' + userData.race + '\n'  + '\n' 
+                        + '**Class** ' + '\n' + userData.class + '\n' + '\n' 
+                        + '**Archetype** ' + '\n' + userData.specialization + '\n' + '\n'
+                        + '**STR** ' + '\t' + '**CON**' + '\t' + '**DEX**' + '\n' 
+                        + formatWhiteSpace(userData.str, 3)  + '\t' + formatWhiteSpace(userData.con, 3) + '\t' + formatWhiteSpace(userData.dex, 3)  + '\n' + '\n'
+                        + '**INT** ' + '\t' + '**WIS**' + '\t' + '**CHA**' + '\n' 
+                        + formatWhiteSpace(userData.int, 3)  + '\t' + formatWhiteSpace(userData.wis, 3) + '\t' + formatWhiteSpace(userData.cha, 3)  
+
                 });
             break;
             case 'abilitysave':
@@ -262,7 +271,7 @@ bot.on('message', function (user, userID, channelID, message, evt) {
             case 'survival': 
                 bot.sendMessage({
                     to: channelID,
-                    message: '**Survival Check**: 1d20 (' + seed + ') + survival bonus (' + userData.survival + ') = ' + '**' + (seed + userData.survival) + '**'
+                    message: '**Survival Check**: 1d20 (' + seed + ') + survival bonus (' + userData.survival + ') = ' + '**' + (seed + userData.Survival) + '**'
                 });
             break;
             // weapon related rolls 
@@ -295,3 +304,14 @@ bot.on('message', function (user, userID, channelID, message, evt) {
          }
      }
 });
+
+function formatWhiteSpace (str, desiredLength) {
+    logger.info(str);
+    logger.info(desiredLength);
+    var toAdd = desiredLength - str.toString().length;
+    logger.info (toAdd);
+    for(var i = 0; i < toAdd; i++) {
+        str = str + '\t';
+    }
+    return str;
+};
